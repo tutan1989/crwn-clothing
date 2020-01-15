@@ -1,5 +1,5 @@
 import React from 'react';
-import HopePage from './homepage.comopent.jsx';
+import HopePage from './pages/homepage/homepage.component.jsx';
 import './App.css';
 
 function App() {
