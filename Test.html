@@ -1,181 +1,218 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Job Triggering System</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
+    <head>
+        <title>SAR</title>
+        <style>
+          body {
+              font-family: sans-serif;
+              margin: 0;
+          }
+  
+          header {
+              background-color: #333;
+              color: white;
+              padding: 15px;
+              display: flex;
+              justify-content: flex-start;
+          }
+  
+          h1 {
+              margin: 0;
+          }
+  
+          footer {
+              background-color: #333;
+              color: white;
+              padding: 10px;
+              text-align: center;
+              position: fixed;
+              bottom: 0;
+              width: 100%;
+          }
+  
+          .container {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 50px;
+              margin-top: 30px;
+              padding: 5px;
+          }
+  
+          .section {
+              width: 45%;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+          }
+  
+          .form-group {
+              margin: 5px;
+          }
+  
+          label {
+              display: block;
+              margin-bottom: 5px;
+          }
+  
+          input[type="text"],
+          input[type="date"],
+          input[type="time"],
+          select {
+              width: 100%;
+              padding: 8px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+          }
+  
+          textarea {
+              width: 100%;
+              height: 100px;
+              padding: 8px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+          }
+  
+          button {
+              background-color: #007bff;
+              color: white;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 3px;
+              cursor: pointer;
+          }
+  
+          .grid-container {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-gap: 10px;
+          }
+  
+          .next-job-info {
+              margin-top: 20px;
+              font-size: 14px;
+              color: #666;
+          }
+      </style>
+    </head>
+    <body>
+        <header>
+            <h1>SAR Portal</h1>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="scheduler_list.html">Scheduler Info</a>
+        </nav>
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: flex-start;
-        }
+        <div class="container">
+                <!-- <div class="card" > -->
+                <div class="section">
+                    <h2>Manual Job Trigger</h2>
+                    <button id="manualTriggerButton" onclick="sendRequest()">Trigger Job</button>
+                    <p id="manualScheduleStatus"></p>
+                    <!-- <div id="manualScheduleStatus"></div> -->
+                </div>
 
-        h1 {
-            margin: 0;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 50px;
-        }
-
-        .section {
-            width: 45%;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="time"],
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 10px;
-        }
-
-        .next-job-info {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Job Triggering System</h1>
-    </header>
-
-    <div class="container">
-        <div class="section">
-            <h2>Manual Job Trigger</h2>
-            <button id="manualTriggerButton">Trigger Job</button>
-            <p id="manualTriggerStatus"></p>
-        </div>
-
-        <div class="section">
-            <h2>Scheduled Job Trigger</h2>
-            <form id="scheduledJobForm">
-                <div class="grid-container">
-                    <div>
-                        <div class="form-group">
+                <!--Scheduler form-->
+                <!-- <div class="card" style="grid-column: span 2;"> -->
+                <div class="section">
+                  <h2>Scheduled Job Trigger</h2>
+                    <form id="scheduleForm" onsubmit="handleFormSubmit(event)">
+                      <div class="grid-container">
+                        <div>
+                          <div class="form-group">
                             <label for="startDate">Start Date:</label>
-                            <input type="date" id="startDate" name="startDate">
-                        </div>
-                        <div class="form-group">
+                            <input type="date" id="startDate" name="startDate" required>
+                          </div>
+                          <div class="form-group">
                             <label for="startTime">Start Time:</label>
-                            <input type="time" id="startTime" name="startTime">
+                            <input type="time" id="startTime" name="startTime" required>
+                          </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="form-group">
+                        <div>
+                          <div class="form-group">
                             <label for="endDate">End Date:</label>
-                            <input type="date" id="endDate" name="endDate">
-                        </div>
-                        <div class="form-group">
+                            <input type="date" id="endDate" name="endDate" required>
+                          </div>
+                          <div class="form-group">
                             <label for="endTime">End Time:</label>
-                            <input type="time" id="endTime" name="endTime">
+                            <input type="time" id="endTime" name="endTime" required>
+                          </div>
                         </div>
-                    </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="frequency">Frequency:</label>
+                            <select id="frequency" required>
+                                <option>Daily</option>
+                                <option>6 Hourly</option>
+                                <option>4 Hourly</option>
+                                <option>2 Hourly</option>
+                            </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="emailIds">Email Ids</label>
+                        <input type="text" id="emailIds" name="emailIds" placeholder="Comma-separated emails">
+                      </div>
+                      <div class="form-group">
+                        <label for="applicationNames">Application Names:</label>
+                            <select id="applicationNames" name="applicationNames[]" multiple>
+                                <option value="app1">App 1</option>
+                                <option value="app2">App 2</option>
+                                <option value="app3">App 3</option>
+                            </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="subjectLine">Subject Line:</label>
+                        <input type="text" id="subjectLine" name="subjectLine">
+                      </div>
+
+                      <div style="grid-column: span 3;">
+                        <input type="hidden" id="status" name="status" value="Not Scheduled">
+                      </div>
+                      <button type="submit" style="grid-column: span 1;">Set Schedule</button>
+                    </form>
+                    <div id="scheduleStatus"></div>
+                    <div class="next-job-info">
+                      Next job will run at 9PM
+                  </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="frequency">Frequency:</label>
-                    <select id="frequency" name="frequency">
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="emailIds">Email Ids:</label>
-                    <input type="text" id="emailIds" name="emailIds" placeholder="Comma-separated emails">
-                </div>
-
-                <div class="form-group">
-                    <label for="applicationNames">Application Names:</label>
-                    <select id="applicationNames" name="applicationNames[]" multiple> 
-                        <option value="app1">App 1</option>
-                        <option value="app2">App 2</option>
-                        <option value="app3">App 3</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="subjectLine">Subject Line:</label>
-                    <textarea id="subjectLine" name="subjectLine"></textarea>
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
-
-            <div class="next-job-info">
-                Next job will run at 9PM
-            </div> 
         </div>
-    </div>
 
-    <footer>
-        &copy; 2023 Your Company
-    </footer>
+            
+        <!-- </main> -->
+        <footer>
+            &copy; 2024 SAR Portal
+        </footer>
 
-    <script>
-        // ... (JavaScript code as in the previous example) ...
-    </script>
-
-</body>
+        <script>
+            function sendRequest(){
+            //fetch('http://10.198.54.231:8011/run')
+            fetch('http://localhost:8011/run')
+            .then(response => response.text())
+            .then(result => {document.getElementById('manualScheduleStatus').innerText = result})
+            .catch(error => {console.error('error in:', error); alert(error)});
+          }
+            function handleFormSubmit(event){
+            event.preventDefault();
+            const scheduleData = {
+                startDate: document.getElementById('startDate').value,
+                startTime: document.getElementById('startTime').value,
+                endDate: document.getElementById('endDate').value,
+                endTime: document.getElementById('endTime').value,
+                frequency: document.getElementById('frequency').value,
+                emailIds: document.getElementById('emailIds').value,
+                status: document.getElementById('status').value
+            };
+            console.log(scheduleData);
+            fetch('http://10.198.54.231:8011/schedule', {
+                method:'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(scheduleData)
+            }).then(response => response.text()).then(result =>{
+                document.getElementById('scheduleStatus').innerText = result;
+                //fetchSchedulerInfoList();
+            }).catch(error =>console.error('error in post: ',error));
+            document.getElementById("scheduleForm").reset();
+          }
+        </script>
+    </body>
 </html>
