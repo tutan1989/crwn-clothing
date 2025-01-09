@@ -6,13 +6,14 @@
         body {
             font-family: sans-serif;
             margin: 0;
+            padding: 20px; /* Add padding to body for better spacing */
         }
 
         header {
             background-color: #333;
             color: white;
             padding: 15px;
-            display: flex; /* Align header text to the left */
+            display: flex;
             justify-content: flex-start;
         }
 
@@ -33,7 +34,7 @@
         .container {
             display: flex;
             justify-content: space-between;
-            padding: 20px;
+            margin-bottom: 50px; /* Add margin to separate content from footer */
         }
 
         .section {
@@ -71,7 +72,7 @@
         }
 
         button {
-            background-color: #007bff; /* Blue button color */
+            background-color: #007bff;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -81,8 +82,14 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns */
+            grid-template-columns: 1fr 1fr;
             grid-gap: 10px;
+        }
+
+        .next-job-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
@@ -112,14 +119,6 @@
                             <label for="startTime">Start Time:</label>
                             <input type="time" id="startTime" name="startTime">
                         </div>
-                        <div class="form-group">
-                            <label for="frequency">Frequency:</label>
-                            <select id="frequency" name="frequency">
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
-                        </div>
                     </div>
                     <div>
                         <div class="form-group">
@@ -130,11 +129,21 @@
                             <label for="endTime">End Time:</label>
                             <input type="time" id="endTime" name="endTime">
                         </div>
-                        <div class="form-group">
-                            <label for="emailIds">Email Ids:</label>
-                            <input type="text" id="emailIds" name="emailIds" placeholder="Comma-separated emails">
-                        </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">Frequency:</label>
+                    <select id="frequency" name="frequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailIds">Email Ids:</label>
+                    <input type="text" id="emailIds" name="emailIds" placeholder="Comma-separated emails">
                 </div>
 
                 <div class="form-group">
@@ -153,6 +162,10 @@
 
                 <button type="submit">Submit</button>
             </form>
+
+            <div class="next-job-info">
+                Next job will run at 9PM
+            </div> 
         </div>
     </div>
 
