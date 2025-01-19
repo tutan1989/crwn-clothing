@@ -1,10 +1,40 @@
-Item: 
-Hypercare – A SAR Integrated User Friendly Interface to monitor IAM applications health.
-Problem Statement:
-For our IAM applications, during the patch or CR any implementation, support people periodically logging into the system manually  and checking the application health which required quite lot of time since its periodic, To solve this we came up with tactical solution which is built on top of our existing SAR reporting solution. 
-Solution Overview:
-In response, a collaborative effort between the CST Automation and KTLO teams led to the development of the "Situation Awareness Dashboard" (SAR)—a one-click automation solution designed to streamline monitoring tasks. This innovative tool provides real-time, comprehensive situational awareness across all 10 applications and six metrics, enabling rapid identification of potential issues and accelerating remediation. Within just two months, the team successfully launched two major releases (MVP1 and MVP2), delivering impactful results.
-Key Benefits:
-Enhanced Operational Efficiency: By automating the monitoring process, SAR frees the KTLO team from repetitive tasks, allowing them to focus on high-value activities such as problem analysis and engineering solutions. Potential save of around 30 - 35 hrs per month.
-Improved Resilience: Real-time monitoring empowers the team to proactively detect and resolve issues, reducing downtime and bolstering system stability.
-Increased Productivity: Automation optimizes workflows, facilitating faster, more efficient operations and reducing manual intervention.
+This document outlines the development and implementation of Hypercare, a user-friendly interface integrated with the Situation Awareness Reporting (SAR) system. Hypercare addresses the challenges faced by support teams in monitoring the health of IAM applications during patch and change implementations. By automating the monitoring process, Hypercare significantly enhances operational efficiency, resilience, and productivity.
+
+Problem Statement
+For our IAM applications, support personnel were required to manually log into the system periodically to check application health during patches or CR implementations. This manual process was time-consuming and inefficient, leading to delays in identifying and resolving potential issues. 
+
+Support personnel are tasked with ensuring the health of IAM applications, especially during critical updates such as patches and CR implementations. The existing manual process involves:
+Logging into the system at regular intervals.
+Checking the status of various application components.
+Documenting any issues or anomalies.
+Taking necessary actions based on the findings.
+This approach has several drawbacks:
+Time-Consuming: The manual checks require significant time investment, diverting resources from more strategic tasks.
+Human Error: Manual processes are susceptible to oversight and errors, which can lead to undetected issues.
+Delayed Response: The time taken to identify and resolve issues can lead to prolonged downtimes or degraded performance of the applications.
+
+Solution
+To address this challenge, we devised a tactical solution which is built on top of our existing SAR reporting framework by introducing a user friendly interface. This one-click automation solution is designed to customise job scheduling, which allows user to tailor monitoring jobs to specific needs and timelines.
+
+
+To address these challenges, we propose the implementation of an automated health check system. The key features of this solution include:
+Scheduled Health Checks: Automate the execution of health checks at predefined intervals without the need for manual intervention.
+Real-Time Monitoring: Utilize monitoring tools to provide real-time insights into application health, allowing for immediate detection of issues.
+Alerting Mechanism: Implement an alerting system that notifies support personnel of any anomalies or failures, enabling quicker response times.
+Reporting: Generate automated reports summarizing the health check results, which can be reviewed periodically for trend analysis and proactive maintenance.
+
+Key Benefits
+Enhanced Operational Efficiency
+By automating the monitoring process, SAR alleviates the KTLO team from repetitive tasks. This allows them to concentrate on high-value activities such as problem analysis and engineering solutions. The automation is projected to save approximately 30 to 35 hours per month.
+
+Improved Resilience
+The real-time monitoring capabilities of SAR empower the team to proactively detect and resolve issues. This proactive approach reduces downtime and enhances system stability, ensuring that IAM applications remain operational and reliable.
+
+Increased Productivity
+Automation optimizes workflows, facilitating faster and more efficient operations while minimizing the need for manual intervention. This increase in productivity allows the team to allocate resources more effectively and respond to issues more swiftly.
+
+The automation of application health checks offers several benefits:
+Increased Efficiency: Freeing up support personnel from manual checks allows them to focus on more critical tasks.
+Improved Accuracy: Automated systems reduce the risk of human error, leading to more reliable health assessments.
+Faster Issue Resolution: With real-time monitoring and alerts, potential issues can be addressed more swiftly, minimizing downtime.
+Enhanced Reporting: Automated reports provide valuable insights into application performance over time, aiding in strategic decision-making.
