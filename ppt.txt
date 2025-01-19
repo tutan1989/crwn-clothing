@@ -1,0 +1,10 @@
+Item: 
+Hypercare – A SAR Integrated User Friendly Interface to monitor IAM applications health.
+Problem Statement:
+For our IAM applications, during the patch or CR any implementation, support people periodically logging into the system manually  and checking the application health which required quite lot of time since its periodic, To solve this we came up with tactical solution which is built on top of our existing SAR reporting solution. 
+Solution Overview:
+In response, a collaborative effort between the CST Automation and KTLO teams led to the development of the "Situation Awareness Dashboard" (SAR)—a one-click automation solution designed to streamline monitoring tasks. This innovative tool provides real-time, comprehensive situational awareness across all 10 applications and six metrics, enabling rapid identification of potential issues and accelerating remediation. Within just two months, the team successfully launched two major releases (MVP1 and MVP2), delivering impactful results.
+Key Benefits:
+Enhanced Operational Efficiency: By automating the monitoring process, SAR frees the KTLO team from repetitive tasks, allowing them to focus on high-value activities such as problem analysis and engineering solutions. Potential save of around 30 - 35 hrs per month.
+Improved Resilience: Real-time monitoring empowers the team to proactively detect and resolve issues, reducing downtime and bolstering system stability.
+Increased Productivity: Automation optimizes workflows, facilitating faster, more efficient operations and reducing manual intervention.
