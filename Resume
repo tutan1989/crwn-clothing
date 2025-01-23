@@ -1,0 +1,34 @@
+Projects
+1. Build Validation Framework (BVF)
+Technologies Used: Python
+Project Description: Designed and developed a Build Validation Framework to ensure the correctness and consistency of software builds. The framework validates key components and configurations across various stages of the software development lifecycle.
+Roles and Responsibilities:
+Single-handedly conceptualized, designed, and implemented the framework.
+Automated validation processes to reduce manual intervention.
+Ensured scalability and maintainability of the framework for future enhancements.
+2. Service Availability Report (SAR) Automation for IAM Applications
+Technologies Used: Shell Script, Python, Java
+Project Description: Automated the generation of Service Availability Reports (SAR) for IAM applications to monitor uptime and availability metrics efficiently.
+Roles and Responsibilities:
+Developed scripts to fetch, process, and compile service availability data from multiple sources.
+Integrated reporting functionality with existing tools for seamless monitoring.
+Reduced manual reporting efforts and improved accuracy with automated workflows.
+3. Hypercare Automation for KTLO Team
+Technologies Used: HTML, CSS, JavaScript (UI); Python, Shell Script (Backend)
+Project Description: Built a solution to handle Hypercare situations requiring enhanced monitoring and support for the Keep The Lights On (KTLO) team. The tool provided real-time monitoring dashboards and automated alerting.
+Roles and Responsibilities:
+Designed and developed the user interface for real-time monitoring dashboards.
+Automated backend processes for enhanced alert generation and issue tracking.
+Collaborated with stakeholders to align the solution with Hypercare requirements.
+Does this align with what you had in mind? Let me know if you'd like to tweak anything further!
+
+
+
+
+
+
+
+
+
+
+
